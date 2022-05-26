@@ -1,0 +1,9 @@
+.homeScreen {
+  &__wrapper {
+    max-width: 1300px;
+    margin: 0 auto 0 auto;
+  }
+  &__main {
+    display: flex;
+  }
+}

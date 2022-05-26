@@ -1,0 +1,22 @@
+.catalog {
+  margin-top: 80px;
+  &__header {
+    &-text {
+      font-size: 20px;
+    }
+    &-h2 {
+      font-size: 42px;
+    }
+  }
+  &__main {
+  }
+  &__list {
+    font-size: 24px;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    &-item {
+      margin-top: 10px;
+    }
+  }
+}

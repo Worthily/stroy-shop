@@ -1,5 +1,4 @@
 import React from 'react';
-import './App.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import HomeScreen from './screens/HomeScreen';
 import PageNotFoundScreen from './screens/PageNotFoundScreen';
@@ -16,6 +15,7 @@ import {
   OrderScreenRoute,
   ProductScreenRoute,
 } from './constants';
+import './scss/main.css';
 
 function App() {
   return (

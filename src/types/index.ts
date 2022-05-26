@@ -2,6 +2,7 @@ export type Cards = {
   id: string;
   title: string;
   content: string;
+  cost: string;
   image: string;
   categoryId: string;
   specialMarksId: string;
@@ -29,8 +30,8 @@ export type Category = {
 };
 
 export type State = {
-  user: User;
-  comments: Comments[];
+  // user: User;
+  // comments: Comments[];
   cards: Cards[];
-  category: Category[];
+  // category: Category[];
 };
