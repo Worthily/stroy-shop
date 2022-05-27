@@ -5,12 +5,21 @@ import add02 from '../../assets/img/add02.png';
 import userIcn from '../../assets/img/avatar.png';
 import cartIcn from '../../assets/img/shopping-cart.png';
 import ordersIcn from '../../assets/img/order.png';
+import {
+  HomeScreenRoute,
+  CartScreenRoute,
+  CatalogScreenRoute,
+  OrderListScreenRoute,
+  ProductScreenRoute,
+} from '../../constants';
 
 function Header() {
   return (
     <div className="header__wrapper">
       <div className="header__logo-wrapper">
-        <img src={logo} alt="logo" className="header__logo" />
+        <a href={HomeScreenRoute} className="">
+          <img src={logo} alt="logo" className="header__logo" />
+        </a>
       </div>
       <div className="header__add">
         <div className="header__add-1">
@@ -27,19 +36,25 @@ function Header() {
         </div>
       </div>
       <div className="header__buttons-wrapper">
-        <div className="header__buttons-orders">
+        <a href={OrderListScreenRoute} className="header__buttons-orders">
           <img
             src={ordersIcn}
             alt="orders"
             className="header__buttons-orders-img"
           />
-        </div>
+        </a>
         <div className="header__buttons-user">
           <img src={userIcn} alt="user" className="header__buttons-user-img" />
         </div>
-        <div className="header__buttons-cart">
-          <img src={cartIcn} alt="cart" className="header__buttons-cart-img" />
-          <div className="header__buttons-cart-text">Корзина</div>
+        <div className="header__buttons-cart-wrapper">
+          <a href={CartScreenRoute} className="header__buttons-cart">
+            <img
+              src={cartIcn}
+              alt="cart"
+              className="header__buttons-cart-img"
+            />
+            <div className="header__buttons-cart-text">Корзина</div>
+          </a>
         </div>
       </div>
     </div>

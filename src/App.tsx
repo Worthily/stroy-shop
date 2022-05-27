@@ -12,7 +12,6 @@ import {
   CartScreenRoute,
   CatalogScreenRoute,
   OrderListScreenRoute,
-  OrderScreenRoute,
   ProductScreenRoute,
 } from './constants';
 import './scss/main.css';
@@ -25,7 +24,6 @@ function App() {
         <Route path={CartScreenRoute} element={<CartScreen />} />
         <Route path={CatalogScreenRoute} element={<CatalogScreen />} />
         <Route path={OrderListScreenRoute} element={<OrderListScreen />} />
-        <Route path={OrderScreenRoute} element={<OrderScreen />} />
         <Route path={ProductScreenRoute} element={<ProductScreen />} />
         <Route path="*" element={<PageNotFoundScreen />} />
       </Routes>

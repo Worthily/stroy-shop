@@ -6,6 +6,12 @@ export type Cards = {
   image: string;
   categoryId: string;
   specialMarksId: string;
+  isInCart: boolean;
+};
+
+export type ProductInCart = {
+  id: string;
+  count: string;
 };
 
 export type Comments = {
@@ -30,8 +36,6 @@ export type Category = {
 };
 
 export type State = {
-  // user: User;
-  // comments: Comments[];
+  productInCart: ProductInCart[];
   cards: Cards[];
-  // category: Category[];
 };

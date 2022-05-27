@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { State } from '../../types';
+import Card from '../Card';
 
 function ProductList() {
   const cards = useSelector((state: State) => state.cards);
@@ -9,7 +10,7 @@ function ProductList() {
   const elements = cards.map((item) => {
     return (
       <li key={item.id} className="product-list__card-item">
-        {item.id},{item.title}
+        <Card card={item} />
       </li>
     );
   });
