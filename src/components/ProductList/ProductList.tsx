@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { State } from '../../types';
 import Card from '../Card';
+import { ProductScreenRoute } from '../../constants';
 
 function ProductList() {
   const cards = useSelector((state: State) => state.cards);
@@ -10,7 +11,11 @@ function ProductList() {
   const elements = cards.map((item) => {
     return (
       <li key={item.id} className="product-list__card-item">
-        <Card card={item} />
+        <Link
+          to={`${ProductScreenRoute}/${item.id}`}
+          className="product-list__card-link">
+          <Card card={item} />
+        </Link>
       </li>
     );
   });

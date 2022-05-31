@@ -1,6 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { stat } from 'fs';
 import { combineReducers } from 'redux';
-import { Cards, ProductInCart } from '../types';
+import { Cards, ProductInCart, Special, User } from '../types';
 
 const cardsInitialState: Cards[] = [
   {
@@ -71,6 +72,59 @@ const cardsInitialState: Cards[] = [
   },
 ];
 const cartInitialState: ProductInCart[] = [];
+const userInitialState: User = {
+  id: '',
+  name: '',
+  email: '',
+  password: '',
+  banned: false,
+  banReason: '',
+  role: '',
+};
+
+const specialInitialState: Special = {
+  showUserPopup: false,
+  userLoggedIn: false,
+};
+
+export const userSlice = createSlice({
+  name: 'cards',
+  initialState: userInitialState,
+  reducers: {
+    registr: (
+      state,
+      {
+        payload,
+      }: PayloadAction<{ name: string; email: string; password: string }>,
+    ) => {
+      const newUser = {
+        id: '1',
+        name: payload.name,
+        email: payload.email,
+        password: payload.password,
+        banned: false,
+        banReason: '',
+        role: 'user',
+      };
+      return newUser;
+    },
+    authorize: (
+      state,
+      { payload }: PayloadAction<{ email: string; password: string }>,
+    ) => {
+      // const newUser = {
+      //   id: '1',
+      //   name: payload.name,
+      //   email: payload.email,
+      //   password: payload.password,
+      //   banned: false,
+      //   banReason: '',
+      //   role: 'user',
+      // };
+      // return newUser;
+    },
+  },
+});
 
 export const cardsSlice = createSlice({
   name: 'cards',
@@ -110,7 +164,40 @@ export const cartSlice = createSlice({
   },
 });
 
+export const specialSlice = createSlice({
+  name: 'special',
+  initialState: specialInitialState,
+  reducers: {
+    showUserPopup: (state) => {
+      const newState: Special = {
+        showUserPopup: true,
+        userLoggedIn: state.userLoggedIn,
+      };
+      return newState;
+    },
+    hideUserPopup: (state) => {
+      const newState: Special = {
+        showUserPopup: false,
+        userLoggedIn: state.userLoggedIn,
+      };
+      return newState;
+    },
+    setUserLoggedIn: (
+      state,
+      { payload }: PayloadAction<{ logged: boolean }>,
+    ) => {
+      const newState: Special = {
+        showUserPopup: state.showUserPopup,
+        userLoggedIn: payload.logged,
+      };
+      return newState;
+    },
+  },
+});
+
 export const reducer = combineReducers({
   cards: cardsSlice.reducer,
   productInCart: cartSlice.reducer,
+  user: userSlice.reducer,
+  special: specialSlice.reducer,
 });

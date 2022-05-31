@@ -1,4 +1,6 @@
 import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { showUserPopupActionCreator } from '../../store/actions';
 import logo from '../../assets/img/logo.png';
 import add01 from '../../assets/img/add01.png';
 import add02 from '../../assets/img/add02.png';
@@ -14,6 +16,7 @@ import {
 } from '../../constants';
 
 function Header() {
+  const dispatch = useDispatch();
   return (
     <div className="header__wrapper">
       <div className="header__logo-wrapper">
@@ -43,7 +46,11 @@ function Header() {
             className="header__buttons-orders-img"
           />
         </a>
-        <div className="header__buttons-user">
+        <div
+          onClick={() => {
+            dispatch(showUserPopupActionCreator());
+          }}
+          className="header__buttons-user">
           <img src={userIcn} alt="user" className="header__buttons-user-img" />
         </div>
         <div className="header__buttons-cart-wrapper">

@@ -1,0 +1,45 @@
+.footer {
+  background-color: #f1f1f1;
+  padding: 30px;
+  border-top: #000 solid 5px;
+  &__wrapper {
+    display: flex;
+    justify-content: space-between;
+  }
+  &__link {
+    &-wrapper {
+    }
+  }
+  &__title {
+    font-size: 30px;
+  }
+  &__links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    list-style-type: none;
+  }
+  &__link {
+    width: 40%;
+    text-decoration: none;
+    color: rgb(59, 146, 93);
+    &-wrapper {
+      width: 50%;
+      padding-top: 10px;
+    }
+  }
+  &__payment {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    &-text {
+      font-size: 15px;
+      margin-bottom: 10px;
+    }
+    &-list {
+      &-item-img {
+        width: 200px;
+      }
+    }
+  }
+}

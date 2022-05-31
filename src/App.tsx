@@ -24,7 +24,7 @@ function App() {
         <Route path={CartScreenRoute} element={<CartScreen />} />
         <Route path={CatalogScreenRoute} element={<CatalogScreen />} />
         <Route path={OrderListScreenRoute} element={<OrderListScreen />} />
-        <Route path={ProductScreenRoute} element={<ProductScreen />} />
+        <Route path={`${ProductScreenRoute}/:id`} element={<ProductScreen />} />
         <Route path="*" element={<PageNotFoundScreen />} />
       </Routes>
     </Router>

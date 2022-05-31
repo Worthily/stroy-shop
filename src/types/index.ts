@@ -25,9 +25,10 @@ export type User = {
   id: string;
   name: string;
   email: string;
-  banned: string;
+  password: string;
+  banned: boolean;
   banReason: string;
-  admin: boolean;
+  role: string;
 };
 
 export type Category = {
@@ -35,7 +36,14 @@ export type Category = {
   name: string;
 };
 
+export type Special = {
+  showUserPopup: boolean;
+  userLoggedIn: boolean;
+};
+
 export type State = {
   productInCart: ProductInCart[];
   cards: Cards[];
+  user: User;
+  special: Special;
 };

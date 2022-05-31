@@ -67,7 +67,6 @@ function CartScreen() {
           <div className="cart-screen__order-button">Оформить заказ</div>
         </div>
       </main>
-      <footer className="footer"></footer>
     </div>
   );
 }
