@@ -19,6 +19,7 @@ export type Comments = {
   author: string;
   text: string;
   card: string;
+  date: string;
 };
 
 export type User = {
@@ -41,9 +42,20 @@ export type Special = {
   userLoggedIn: boolean;
 };
 
+export type Order = {
+  id: string;
+  products: string;
+  cost: string;
+  user: string;
+  adress: string;
+};
+
 export type State = {
   productInCart: ProductInCart[];
+  category: Category[];
   cards: Cards[];
   user: User;
   special: Special;
+  comments: Comments[];
+  orders: Order[];
 };

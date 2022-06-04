@@ -1,5 +1,6 @@
 .catalog {
   margin-top: 80px;
+  margin-bottom: 80px;
   &__header {
     &-text {
       font-size: 20px;
@@ -17,6 +18,12 @@
     padding: 0;
     &-item {
       margin-top: 10px;
+      text-decoration: none;
+      color: #000;
     }
+  }
+  &__nav-text {
+    text-decoration: none;
+    color: #000;
   }
 }

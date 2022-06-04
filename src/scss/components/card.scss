@@ -21,6 +21,7 @@
     color: #fff;
     font-size: 20px;
     display: inline-block;
+    cursor: pointer;
   }
   &__button-clicked {
     margin-top: 10px;
@@ -31,5 +32,16 @@
     color: #000;
     font-size: 20px;
     display: inline-block;
+    cursor: pointer;
   }
+}
+
+.card__button-clicked:hover .card__button-text {
+  display: none;
+}
+.card__button-clicked .card__button-hover {
+  display: none;
+}
+.card__button-clicked:hover .card__button-hover {
+  display: inline;
 }

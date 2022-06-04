@@ -1,0 +1,37 @@
+.commentList {
+  &__wrapper {
+    margin-left: 25px;
+    margin-top: 40px;
+  }
+  &__comments {
+    margin-bottom: 30px;
+  }
+  &__comment {
+    margin-top: 30px;
+    &-wrapper {
+      background-color: #f1f1f1;
+      padding: 20px;
+      border-radius: 20px;
+      max-width: 800px;
+      margin: 0 0 20px 10px;
+    }
+    &-author {
+      font-size: 25px;
+    }
+    &-date {
+      color: #999;
+    }
+    &-text {
+      font-size: 20px;
+      margin-top: 15px;
+    }
+  }
+  &__sorry {
+    font-size: 25px;
+    margin-top: 30px;
+  }
+  &__text {
+    margin-top: 10px;
+    font-size: 20px;
+  }
+}

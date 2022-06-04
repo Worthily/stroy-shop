@@ -5,17 +5,15 @@ import { State } from '../../types';
 import Card from '../Card';
 import { ProductScreenRoute } from '../../constants';
 
-function ProductList() {
+function ProductList(props: { category: string }) {
   const cards = useSelector((state: State) => state.cards);
-
-  const elements = cards.map((item) => {
+  const categoriedCards = cards.filter((card) => {
+    return card.categoryId == props.category || props.category == '0';
+  });
+  const elements = categoriedCards.map((item) => {
     return (
       <li key={item.id} className="product-list__card-item">
-        <Link
-          to={`${ProductScreenRoute}/${item.id}`}
-          className="product-list__card-link">
-          <Card card={item} />
-        </Link>
+        <Card card={item} />
       </li>
     );
   });

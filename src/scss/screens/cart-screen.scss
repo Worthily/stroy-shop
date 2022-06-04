@@ -44,6 +44,9 @@
     &-price {
       font-size: 25px;
     }
+    &-remove {
+      max-width: 25px;
+    }
   }
   &__order {
     width: 28%;
@@ -63,6 +66,15 @@
       font-size: 25px;
       display: flex;
       justify-content: space-between;
+    }
+    &-input {
+      width: 96%;
+      font-size: 18px;
+      padding: 15px 0 15px 10px;
+      border-radius: 10px;
+    }
+    &-input-wrapper {
+      margin-top: 20px;
     }
     &-button {
       margin-top: 25px;

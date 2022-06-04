@@ -23,8 +23,8 @@ function HomeScreen() {
           <Header />
         </header>
         <main className="homeScreen__main">
-          <Catalog />
-          <ProductList />
+          <Catalog current="0" />
+          <ProductList category="0" />
         </main>
         <footer className="footer">
           <Footer />

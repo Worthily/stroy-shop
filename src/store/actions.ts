@@ -1,10 +1,25 @@
-import { cardsSlice, cartSlice, userSlice, specialSlice } from './reducer';
+import {
+  cardsSlice,
+  cartSlice,
+  userSlice,
+  specialSlice,
+  ordersSlice,
+} from './reducer';
 
-export const { addNewProduct: addNewProductActionCreator } = cartSlice.actions;
+export const {
+  addNewProduct: addNewProductActionCreator,
+  removeProduct: removeProductActionCreator,
+  addCountProduct: addCountProductActionCreator,
+  subCountProduct: subCountProductActionCreator,
+} = cartSlice.actions;
 
 export const { setInCart: setInCartActionCreator } = cardsSlice.actions;
 
 export const { registr: registrActionCreator } = userSlice.actions;
+export const {
+  createOrder: createOrderActionCreator,
+  removeOrder: removeOrderActionCreator,
+} = ordersSlice.actions;
 
 export const {
   showUserPopup: showUserPopupActionCreator,

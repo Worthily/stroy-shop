@@ -1,0 +1,82 @@
+.productScreen {
+  &__wrapper {
+  }
+  &__main {
+  }
+  &__card {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 50px;
+    margin-bottom: 70px;
+    &-img {
+      height: 500px;
+    }
+    &-info {
+      margin-left: 5%;
+    }
+    &-title {
+      font-size: 25px;
+      max-width: 600px;
+      min-width: 600px;
+    }
+    &-cost {
+      font-size: 30px;
+      margin-top: 30px;
+      margin-bottom: 15px;
+    }
+    &-buttons-wrapper {
+      display: flex;
+    }
+    &-addCount-wrapper {
+      display: flex;
+      align-items: center;
+      margin-left: 20px;
+    }
+    &-sub {
+      font-size: 40px;
+      margin-top: 3px;
+    }
+    &-count {
+      margin-left: 10px;
+      font-size: 30px;
+      margin-top: 10px;
+    }
+    &-add {
+      font-size: 40px;
+      margin-left: 10px;
+      margin-top: 10px;
+    }
+  }
+  &__info {
+    margin-bottom: 20px;
+    &-nav {
+      display: flex;
+    }
+  }
+  &__nav {
+    &-item {
+      font-size: 18px;
+      margin-left: 25px;
+      padding-bottom: 5px;
+      cursor: pointer;
+    }
+  }
+  &__descr {
+    &-wrapper {
+      margin-left: 25px;
+      margin-top: 30px;
+      margin-bottom: 60px;
+    }
+    &-title {
+      margin-bottom: 20px;
+      font-size: 30px;
+    }
+    &-text {
+      font-size: 20px;
+      max-width: 700px;
+    }
+  }
+}
+.item-active {
+  border-bottom: 3px solid #000;
+}
