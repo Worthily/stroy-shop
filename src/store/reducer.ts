@@ -1,5 +1,4 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { stat } from 'fs';
 import { combineReducers } from 'redux';
 import {
   Cards,
@@ -114,15 +113,6 @@ const cardsInitialState: Cards[] = [
   },
 ];
 const cartInitialState: ProductInCart[] = [];
-const userInitialState: User = {
-  id: '',
-  name: '',
-  email: '',
-  password: '',
-  banned: false,
-  banReason: '',
-  role: '',
-};
 
 const specialInitialState: Special = {
   showUserPopup: false,
@@ -209,45 +199,6 @@ const categoryInitialState: Category[] = [
 ];
 
 const ordersInitialState: Order[] = [];
-
-export const userSlice = createSlice({
-  name: 'cards',
-  initialState: userInitialState,
-  reducers: {
-    registr: (
-      state,
-      {
-        payload,
-      }: PayloadAction<{ name: string; email: string; password: string }>,
-    ) => {
-      const newUser = {
-        id: '1',
-        name: payload.name,
-        email: payload.email,
-        password: payload.password,
-        banned: false,
-        banReason: '',
-        role: 'user',
-      };
-      return newUser;
-    },
-    authorize: (
-      state,
-      { payload }: PayloadAction<{ email: string; password: string }>,
-    ) => {
-      // const newUser = {
-      //   id: '1',
-      //   name: payload.name,
-      //   email: payload.email,
-      //   password: payload.password,
-      //   banned: false,
-      //   banReason: '',
-      //   role: 'user',
-      // };
-      // return newUser;
-    },
-  },
-});
 
 export const commentsSlice = createSlice({
   name: 'comments',
@@ -450,14 +401,4 @@ export const categorySlice = createSlice({
   name: 'category',
   initialState: categoryInitialState,
   reducers: {},
-});
-
-export const reducer = combineReducers({
-  cards: cardsSlice.reducer,
-  productInCart: cartSlice.reducer,
-  user: userSlice.reducer,
-  special: specialSlice.reducer,
-  comments: commentsSlice.reducer,
-  category: categorySlice.reducer,
-  orders: ordersSlice.reducer,
 });

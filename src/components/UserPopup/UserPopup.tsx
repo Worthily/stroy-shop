@@ -1,10 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import {
-  registrActionCreator,
   hideUserPopupActionCreator,
   setUserLoggedInActionCreator,
 } from '../../store/actions';
+import {
+  authReqActionCreator,
+  authRespActionCreator,
+  exitProfileActionCreator,
+  registrReqActionCreator,
+  registrRespActionCreator,
+} from '../../store/User/actions';
 import { Form, Field } from 'react-final-form';
 import exitImg from '../../assets/img/exit.png';
 import { State } from '../../types';
@@ -12,6 +18,8 @@ import { State } from '../../types';
 function UserPopup() {
   const dispatch = useDispatch();
   const special = useSelector((state: State) => state.special);
+  const user = useSelector((state: State) => state.user);
+  const orders = useSelector((state: State) => state.orders);
   const [formChange, setFormChange] = useState(false);
   const registrForm = (
     <Form
@@ -27,14 +35,13 @@ function UserPopup() {
             formObj.password.trim()
           ) {
             dispatch(
-              registrActionCreator({
+              registrReqActionCreator({
                 name: formObj.name,
                 email: formObj.email,
                 password: formObj.password,
               }),
             );
             dispatch(hideUserPopupActionCreator());
-            dispatch(setUserLoggedInActionCreator({ logged: true }));
           }
         }
       }}>
@@ -88,15 +95,13 @@ function UserPopup() {
       onSubmit={(formObj: { email: string; password: string }) => {
         if (formObj.email && formObj.password) {
           if (formObj.email.trim() && formObj.password.trim()) {
-            // dispatch(
-            //   registrActionCreator({
-            //     name: formObj.name,
-            //     email: formObj.email,
-            //     password: formObj.password,
-            //   }),
-            // );
+            dispatch(
+              authReqActionCreator({
+                email: formObj.email,
+                password: formObj.password,
+              }),
+            );
             dispatch(hideUserPopupActionCreator());
-            dispatch(setUserLoggedInActionCreator({ logged: true }));
           }
         }
       }}>
@@ -134,6 +139,53 @@ function UserPopup() {
       )}
     </Form>
   );
+  const element = (
+    <>
+      <div className="userPopup__title-wrapper">
+        {formChange ? (
+          <div className="userPopup__title">Авторизация</div>
+        ) : (
+          <div className="userPopup__title">Регистрация</div>
+        )}
+        <div
+          onClick={() => {
+            dispatch(hideUserPopupActionCreator());
+          }}
+          className="userPopup__exit">
+          <img src={exitImg} alt="exit" className="userPopup__exit-img" />
+        </div>
+      </div>
+      {formChange ? authForm : registrForm}
+    </>
+  );
+
+  const userElement = (
+    <>
+      <div className="userPopup__user">
+        <div className="userPopup__user-info">
+          <div className="userPopup__user-info-name">{user.name}</div>
+          <div className="userPopup__user-info-email">{user.email}</div>
+          <div className="userPopup__user-info-orders">
+            Заказов: {orders.length}
+          </div>
+          <div
+            onClick={() => {
+              dispatch(exitProfileActionCreator());
+            }}
+            className="userPopup__user-info-exit">
+            Выйти из аккаунта
+          </div>
+        </div>
+        <div
+          onClick={() => {
+            dispatch(hideUserPopupActionCreator());
+          }}
+          className="userPopup__user-exit">
+          <img src={exitImg} alt="exit" className="userPopup__exit-img" />
+        </div>
+      </div>
+    </>
+  );
 
   return (
     <div
@@ -142,21 +194,7 @@ function UserPopup() {
       }}
       className="userPopup">
       <div className="userPopup__wrapper" onClick={(e) => e.stopPropagation()}>
-        <div className="userPopup__title-wrapper">
-          {formChange ? (
-            <div className="userPopup__title">Авторизация</div>
-          ) : (
-            <div className="userPopup__title">Регистрация</div>
-          )}
-          <div
-            onClick={() => {
-              dispatch(hideUserPopupActionCreator());
-            }}
-            className="userPopup__exit">
-            <img src={exitImg} alt="exit" className="userPopup__exit-img" />
-          </div>
-        </div>
-        {formChange ? authForm : registrForm}
+        {user.logged ? userElement : element}
       </div>
     </div>
   );

@@ -1,10 +1,4 @@
-import {
-  cardsSlice,
-  cartSlice,
-  userSlice,
-  specialSlice,
-  ordersSlice,
-} from './reducer';
+import { cardsSlice, cartSlice, specialSlice, ordersSlice } from './reducer';
 
 export const {
   addNewProduct: addNewProductActionCreator,
@@ -15,7 +9,6 @@ export const {
 
 export const { setInCart: setInCartActionCreator } = cardsSlice.actions;
 
-export const { registr: registrActionCreator } = userSlice.actions;
 export const {
   createOrder: createOrderActionCreator,
   removeOrder: removeOrderActionCreator,

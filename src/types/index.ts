@@ -30,6 +30,8 @@ export type User = {
   banned: boolean;
   banReason: string;
   role: string;
+  token: string;
+  logged: boolean;
 };
 
 export type Category = {

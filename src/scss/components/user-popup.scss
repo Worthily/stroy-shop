@@ -62,4 +62,35 @@
       height: 25px;
     }
   }
+  &__user{
+    display: flex;
+    min-width: 300px;
+    justify-content: space-between;
+    &-exit{
+      // margin-left: auto;
+    }
+    &-info{
+      // margin-right: auto;
+      &-name{
+        font-size: 25px;
+        margin-bottom: 15px;
+        text-align:left;
+      }
+      &-email{
+        font-size: 25px;
+        margin-bottom: 15px;
+        text-align:left;
+      }
+      &-orders{
+        font-size: 25px;
+        margin-bottom: 15px;
+        text-align:left;
+      }
+      &-exit{
+        font-size: 20px;
+        text-align:left;
+        color: #c02020;
+      }
+    }
+  }
 }
