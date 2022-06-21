@@ -10,11 +10,11 @@ import cardImg from '../../assets/img/beton.webp';
 import {
   addNewProductActionCreator,
   removeProductActionCreator,
-  setInCartActionCreator,
   addCountProductActionCreator,
   subCountProductActionCreator,
 } from '../../store/actions';
 import ProductList from '../../components/ProductList';
+import { setInCartActionCreator } from '../../store/Products/actions';
 
 function ProductScreen() {
   const { id } = useParams();

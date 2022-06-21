@@ -4,7 +4,7 @@ import { userSlice } from './User/reducer';
 import { commentsSlice } from './reducer';
 import { ordersSlice } from './reducer';
 import { cartSlice } from './reducer';
-import { cardsSlice } from './reducer';
+import { cardsSlice } from './Products/reducer';
 import { categorySlice } from './reducer';
 
 export const reducer = combineReducers({

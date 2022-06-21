@@ -13,14 +13,17 @@ import {
   CatalogScreenRoute,
   OrderListScreenRoute,
   ProductScreenRoute,
+  adminroute,
 } from './constants';
 import './scss/main.css';
+import AdminScreen from './screens/AdminScreen';
 
 function App() {
   return (
     <Router>
       <Routes>
         <Route path={HomeScreenRoute} element={<HomeScreen />} />
+        <Route path={adminroute} element={<AdminScreen />} />
         <Route path={CartScreenRoute} element={<CartScreen />} />
         <Route path={`${CatalogScreenRoute}/:id`} element={<CatalogScreen />} />
         <Route path={OrderListScreenRoute} element={<OrderListScreen />} />

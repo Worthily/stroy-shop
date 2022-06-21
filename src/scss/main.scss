@@ -33,3 +33,20 @@ body {
 .footer {
   flex: 0 0 auto;
 }
+
+.add-post{
+  display: flex;
+  flex-direction: column;
+  
+  &__form{
+    &-input{
+      width: 300px;
+      height: 10px;
+      padding: 20px;
+      border-radius: 10px;
+    }
+    &-lable{
+      
+    }
+  }
+}

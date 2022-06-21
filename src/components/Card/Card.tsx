@@ -4,11 +4,11 @@ import { Link, useNavigate } from 'react-router-dom';
 import { Cards, State } from '../../types';
 import cardImg from '../../assets/img/beton.webp';
 import {
-  setInCartActionCreator,
   addNewProductActionCreator,
   removeProductActionCreator,
 } from '../../store/actions';
 import { ProductScreenRoute } from '../../constants';
+import { setInCartActionCreator } from '../../store/Products/actions';
 
 function Card(props: { card: Cards }) {
   const { card } = props;

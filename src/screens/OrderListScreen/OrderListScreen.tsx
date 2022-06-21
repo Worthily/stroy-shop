@@ -8,8 +8,10 @@ import Order from '../../components/Orders';
 
 function OrderListScreen() {
   const dispatch = useDispatch();
+  const user = useSelector((state: State) => state.user);
   const special = useSelector((state: State) => state.special);
-  const orders = useSelector((state: State) => state.orders);
+  const ordersList = useSelector((state: State) => state.orders);
+  const orders = ordersList.filter((item) => item.user == user.id);
   const { showUserPopup } = special;
   let userPopup: JSX.Element = <></>;
   if (showUserPopup) {
